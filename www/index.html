@@ -58,29 +58,29 @@
 <body>
     <div class="app">
         <h1>Bezorgradar</h1>
-	    v201911111111
+	    <!--v201911111111-->
         <div id="deviceready">
-            <p class="event listening blink">Device Aansluiten</p>
-            <p class="event received blink">Device is klaar<span id="auth">.</span></p>
+            <p class="event listening blink">Device defect</p>
+            <p class="event received blink"><span id="auth">is klaar.</span></p>
             
             <form name="meldpunt">
             	<input id="userName" name="userName" placeholder="emailadres" />
             	<br/><input id="passWord" name="passWord" type="password" placeholder="wachtwoord " />
-	  	        <p>localisatie</p>
-				<input id="breedte" name="breedte" type="text" placeholder="breedtegraad" value="52.0000000" />
-	        	<br/><input id="lengte" name="lengte" type="text" placeholder="lengtegraad" value="6.0000000" />
-	        	<!--br/><input id="login" type="button" onclick="inloggen();" value="log in" /><input id="loguit" type="button" onclick="uitloggen();" value="log uit" /-->
-	        	<input id="formid" name="formid" value="" readonly />
+	  	<p>localisatie</p>
+		<input id="breedte" name="breedte" type="text" placeholder="breedtegraad" value="52.0000000" />
+	        <br/><input id="lengte" name="lengte" type="text" placeholder="lengtegraad" value="6.0000000" />
+	        <!--br/><input id="login" type="button" onclick="inloggen();" value="log in" /><input id="loguit" type="button" onclick="uitloggen();" value="log uit" /-->
+	        <input id="formid" name="formid" value="" readonly />
             </form>
             <script>
-				window.document.forms['meldpunt'].elements['formid'].value = Number(Date.now()/1000).toFixed(0);
-				var privee = window.localStorage;
+		window.document.forms['meldpunt'].elements['formid'].value = Number(Date.now()/1000).toFixed(0);
+		var privee = window.localStorage;
             	var ingelogd = false;
             	
             	function checkAuth()
             	{
-					window.ingelogd = false;
-					//var value = privee.getItem(key); // Pass a key name to get its value.
+			window.ingelogd = false;
+			//var value = privee.getItem(key); // Pass a key name to get its value.
 	            	if(window.privee.getItem("userName") !== undefined 
 	            	&& window.privee.getItem("userName") !== null 
 	            	&& window.privee.getItem("userName") !== "")
@@ -102,15 +102,12 @@
 	            	
 	            	if(window.ingelogd)
 	            	{
-	            		//window.document.getElementById('login').disabled = true;
-	            		//window.document.getElementById('loguit').disabled = false;
-	            		window.document.getElementById('auth').innerHTML=" voor "+window.privee.getItem("userName");
+	            		//window.document.getElementById('auth').innerHTML=" voor "+window.privee.getItem("userName");
+				window.document.getElementById('auth').innerHTML="identificatie";
 	            	}
 	            	else
 	            	{
-	            		//window.document.getElementById('loguit').disabled = true;
-	            		//window.document.getElementById('login').disabled = false;
-	            		window.document.getElementById('auth').innerHTML=". Nu eerst identificeren.";
+	            		window.document.getElementById('auth').innerHTML="Eerst identificeren.";
 	            	}
 	            	window.document.getElementById('userName').value = window.privee.getItem("userName");
 	            	window.document.getElementById('passWord').value = window.privee.getItem("passWord");
@@ -119,9 +116,9 @@
             	
             	function inloggen()
             	{
-					window.privee.setItem("userName", window.document.getElementById('userName').value); 	// Pass (key name, value) to add or update that key.
-					window.privee.setItem("passWord", window.document.getElementById('passWord').value); 	// Pass a key name and its value to add or update that key.
-					checkAuth();
+			window.privee.setItem("userName", window.document.getElementById('userName').value); 	// Pass (key name, value) to add or update that key.
+			window.privee.setItem("passWord", window.document.getElementById('passWord').value); 	// Pass a key name and its value to add or update that key.
+			checkAuth();
             	}
             	
             	function uitloggen()
@@ -156,10 +153,10 @@
             <script>
         	    // https://cordova.apache.org/docs/en/9.x/reference/cordova-plugin-geolocation/index.html#example
         	    // onSuccess Callback
-			    // This method accepts a Position object, which contains the
-			    // current GPS coordinates
-			    //
-			    var onSuccess = function(position) 
+		    // This method accepts a Position object, which contains the
+		    // current GPS coordinates
+		    //
+		    var onSuccess = function(position) 
 			    {
 			        /*
 			        alert('Latitude: '          + position.coords.latitude          + '\n' +
